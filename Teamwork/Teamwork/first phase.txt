@@ -1,0 +1,36 @@
+ATC
+  First Phase
+In this phase, each team must develop a program in C/C++ to practice concepts such as bit masks, bit shifts and strings. To create this program, you must use the Visual Studio solution Teamwork that you can download from the Virtual Campus. This solution is configured with certain compilation and linking options that make the second phase of the teamwork easier; the student must not change these options.
+
+Remember that bit 0 is the least significant bit.
+
+You must implement the following functions:
+
+CheckPass()
+The function uses strings, that must be declared as char arrays of 20 positions, not using the String class. When a string is read, it will be assumed that it will be shorter than 20. No error checking will be carried out. Notice that this is a bad practice, but as you are just starting with C, this important check will be skipped.
+
+It must follow these steps:
+
+Read a string from the console. Using function strcmp(), check that the string is mamRO7. If not, it must print the message Hasta la vista, baby and call exit().
+Read another string from the console. Check with strlen() that the lenght of the string is at least 9 and that the character at index 7 is equal to the character at index 8. If not, it must print the message You're not allowed here and call exit().
+CheckMask()
+First, it must read two 32-bit unsigned integers from the console. Then, it has to check:
+
+That bit 10 of the first number is equal to bit 10 of the second number. If not, it must print the message Fail and call exit().
+
+That taking bits between position 5 and position 3 (both included) of the second number entered by the user, the resulting bit pattern is equal to 4 when it is interpreted as natural binary. If not, it must print the message Something went wrong and call exit().
+
+That bit 6 of the first number is equal to 1. If not, it must print the message There was an error and call exit().
+
+CheckInAssemblyFile()
+It must read from the console three 32-bit integers and pass them to function IsValidAssembly(). Then, it must check the result of the call and, if it is 0, it must show the message Oops, that's not right and call exit().
+
+The function IsValidAssembly() must be implemented in assembly in the file Assembly-code.asm. The function must return 1 if these two conditions regarding the numbers read from the console are true, and 0 otherwise:
+
+The result of the XOR between the second and the third number is 939125.
+Bit 21 of the first number is 1.
+ArrayValues()
+Firstly, this function must declare a vector with 3 elements of 8 bits each. Then, it must read from the terminal the value of the three elements. Finally, it must check that the operation arithmetic addition of the elements is equal to 202. If this is not true, it must show the message You're not allowed here and call exit().
+
+main()
+It must call the functions CheckPass(), CheckMask(), CheckInAssemblyFile() and ArrayValues(). If all functions are executed without exiting, the message Correct must be shown.

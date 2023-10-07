@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>1</version>
+  <attributes/>
+  <visualElements>
+    <visualElement>
+      <elementName>Overflow.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="280"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Ov</string>
+        </entry>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="140"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>A_{n-1}</string>
+        </entry>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="60" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>B_{n-1}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="120" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>S_{n-1}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="180" y="340"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Testcase</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>A_{n-1} B_{n-1} S_{n-1} Ov
+0	0	0	0
+0	0	1	1
+0	1	0	0
+0	1	1	0
+1	0	0	0
+1	0	1	0
+1	1	0	1
+1	1	1	0</dataString>
+          </testData>
+        </entry>
+      </elementAttributes>
+      <pos x="-60" y="120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Data</elementName>
+      <elementAttributes/>
+      <pos x="-180" y="-20"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Probe</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>Signal</string>
+        </entry>
+      </elementAttributes>
+      <pos x="320" y="160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes>
+        <entry>
+          <string>wideShape</string>
+          <boolean>true</boolean>
+        </entry>
+      </elementAttributes>
+      <pos x="200" y="140"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="280" y="160"/>
+      <p2 x="320" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="160"/>
+      <p2 x="180" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="180"/>
+      <p2 x="200" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="300"/>
+      <p2 x="100" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="300"/>
+      <p2 x="180" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="140"/>
+      <p2 x="200" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="100" y="280"/>
+      <p2 x="100" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="180"/>
+      <p2 x="180" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="140"/>
+      <p2 x="180" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="300"/>
+      <p2 x="180" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="280"/>
+      <p2 x="120" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="140"/>
+      <p2 x="120" y="160"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="160"/>
+      <p2 x="120" y="180"/>
+    </wire>
+    <wire>
+      <p1 x="60" y="300"/>
+      <p2 x="60" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="280"/>
+      <p2 x="140" y="300"/>
+    </wire>
+  </wires>
+  <measurementOrdering>
+    <string>A_{n-1}</string>
+    <string>B_{n-1}</string>
+    <string>S_{n-1}</string>
+    <string>Ov</string>
+  </measurementOrdering>
+</circuit>
