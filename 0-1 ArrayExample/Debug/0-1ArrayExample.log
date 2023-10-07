@@ -1,0 +1,4 @@
+﻿  0-1ArrayExample.cpp
+C:\Users\paula\Desktop\Fundamentos\0-1 ArrayExample\0-1ArrayExample.cpp(19,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\paula\Desktop\Fundamentos\0-1 ArrayExample\0-1ArrayExample.cpp(33,21): warning C4018: '<': signed/unsigned mismatch
+  0-1ArrayExample.vcxproj -> C:\Users\paula\Desktop\Fundamentos\0-1 ArrayExample\Debug\0-1ArrayExample.exe
