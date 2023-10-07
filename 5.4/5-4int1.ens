@@ -1,0 +1,23 @@
+ORIGEN 300h
+.PILA 20h
+.CODIGO
+  movl r0, 3  ; Number of vector to modify
+  movh r0, 0
+  movl r1, BYTEBAJO DIRECCION simplest_routine
+  movh r1, BYTEALTO DIRECCION simplest_routine
+  mov [r0],r1
+  sti         ; Allow interrupts
+
+  ; Once the service routine is installed
+  ; the main program goes into an infinite loop
+forever:
+  jmp forever
+
+; This is the implementation of the simplest service routine:
+PROCEDIMIENTO simplest_routine
+  iret
+FINP
+
+FIN
+
+FIN

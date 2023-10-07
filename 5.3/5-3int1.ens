@@ -1,0 +1,8 @@
+ORIGEN 300h
+.PILA  20h
+.CODIGO
+  STI
+  MOVL R1, 05h
+  MOVH R1, 80h
+  MOV  R0, R1
+FIN

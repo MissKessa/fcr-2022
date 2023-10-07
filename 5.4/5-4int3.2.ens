@@ -1,0 +1,50 @@
+ORIGEN 300h
+.PILA 20h
+.CODIGO
+  movl r0, 3  ; Number of vector to modify
+  movh r0, 0
+  movl r1, BYTEBAJO DIRECCION valid_routine
+  movh r1, BYTEALTO DIRECCION valid_routine
+  mov [r0],r1
+  sti         ; Allow interrupts
+
+  ; Once the service routine is installed
+  ; the main program goes into an infinite loop
+
+  movh r0, 0F0h ;copy address of screen
+  movl r0, 00h
+
+  movh r2, 0F0h ;copy latest address of screen
+  movl r2, 78h
+forever:
+  mov [r0], r1
+  inc r0
+  cmp r0,r2
+  brnz forever
+  movh r0, 0F0h ;copy address of screen
+  movl r0, 00h
+  jmp forever
+
+
+PROCEDIMIENTO valid_routine
+  push r0
+  push r1
+
+  movh r0, 0E0h ;moving address of lights to r0
+  movl r0, 00h
+  mov r1, [r0]; read lights (switches)
+  mov [r0], r1; write lights (lamps)
+
+  movh r0, 0F0h ;copy address of screen
+  movl r0, 00h
+  mov [r0],r1 ; printing into the screen the value of the state of the lights
+  
+  pop r1
+  pop r0
+  iret
+  
+FINP
+
+FIN
+
+FIN

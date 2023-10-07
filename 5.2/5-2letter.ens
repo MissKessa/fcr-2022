@@ -1,0 +1,33 @@
+ORIGEN 300h
+.CODIGO
+  movl r0, 01h          ; Writing the address of the status-and-control register
+  movh r0, 0F7h          ; of the keyboard interface in r0
+
+  movl r1, 00h          ; Writing the mask in r1 (bit 8)
+  movh r1, 01h
+
+  movl r3, 00h          ; Writing the first video memory address in r3
+  movh r3, 0F0h          ; (the first position of the screen)
+
+  movl r4, '*'          ; Preparing for writing a white asterisk
+  movh r4, 7h           ; over black background
+
+loop:
+  mov r2, [r0]          ; Reading the content of the status-and-control register in r2
+  and r2, r2, r1        ; Performing the logical operation with the register and the mask
+  brz loop             ; If no key is pressed, going back to the beginning of the loop
+
+  movl r6, 00h          ; Writing the address of the data register
+  movh r6, 0F7h          ; of the keyboard interface in r6
+  
+  mov r5, [r6]
+  mov r4,r5
+  movh r4, 7h          ; Moving the character pressed to r4 en black-white
+
+  ; This code is reached when a keystroke has been detected.
+  ; Printing an asterisk on the screen
+  mov [r3], r4          ; Writing the asterisk in the video memory
+  inc r3                ; Updating the position of the screen for the next character
+  jmp loop              ; Going back to the loop to wait for more keystrokes
+
+FIN
