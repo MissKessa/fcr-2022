@@ -1,0 +1,36 @@
+; Ejercicio 2
+; -----------
+; Se lee continuamente el estado de los interruptores del periférico luces.
+; cada vez que cambia el estado de un interruptor cualquiera se escribe un asterisco
+; en el periférico pantalla.
+; Los asteriscos se escriben a partir de la primera posición de la pantalla en color negro
+; negro sobre fondo blanco.
+; La interfaz de luces se encuentra mapeada a partir de la dirección F000h y la interfaz
+; de vídeo a partir de la posición F800h
+
+ORIGEN 2A00h
+
+.DATOS
+interruptores VALOR 00h ; Último valor leído de los interruptores
+
+.CODIGO
+	movh r0, 0F0h ; r0 apunta al registro de datos del periférico luces
+      movl r0, 00h
+	movh r1, 0F8h ; r1 apunta a la interfaz de vídeo
+      movl r1, 00h
+	movh r2, BYTEALTO DIRECCION interruptores ; r2 = dirección de interruptores
+      movl r2, BYTEBAJO DIRECCION interruptores
+		
+muestreo:
+	mov r3, [r2] ; r3 = último valor de interruptores
+	mov r4, [r0] ; r4 = valor actual del periférico luces
+	cmp r3, r4 
+	brz muestreo ;Si los interruptores no han cambiado volver a muestrear
+	
+	mov r3, r4 ; actualizamos interruptores con el último valor de los interruptores
+	movl r5, '*' ; SEÑALES DE CONTROL DE ESTA INSTRUCC.
+	movh r5, 7h; negro sobre fondo blanco
+	mov [r1], r5 ; escribimos el asterisco en la pantalla
+	inc r1 ; posicionarse sobre la siguiente posición de vídeo
+	jmp muestreo 
+FIN
