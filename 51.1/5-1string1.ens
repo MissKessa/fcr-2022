@@ -1,0 +1,27 @@
+ORIGEN 0500h
+INICIO first
+
+.DATOS
+  string VALOR "Hello, world!",0h
+
+.CODIGO
+
+first: 
+  ; Initialize registers to access memory
+  movl r0, 0h
+  movh r0, 0F0h
+  movl r1, BYTEBAJO DIRECCION string
+  movh r1, BYTEALTO DIRECCION string
+  xor r3,r3,r3
+loop:
+  mov r2, [r1]
+  cmp r2, r3
+  brz end
+  movh r2,07h ;Black-white
+  mov [r0], r2
+  inc r0
+  inc r1
+  jmp loop
+end:
+
+FIN
