@@ -1,0 +1,6 @@
+﻿  2-Floats.cpp
+C:\Users\UO294067\Desktop\Fundamentos\2-Floats\2-Floats.cpp(10,16): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\UO294067\Desktop\Fundamentos\2-Floats\2-Floats.cpp(11,16): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\UO294067\Desktop\Fundamentos\2-Floats\2-Floats.cpp(24,35): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\UO294067\Desktop\Fundamentos\2-Floats\2-Floats.cpp(44,12): warning C4309: 'inicializando': truncamiento de valor constante
+  2-Floats.vcxproj -> C:\Users\UO294067\Desktop\Fundamentos\2-Floats\Debug\2-Floats.exe
