@@ -1,0 +1,21 @@
+movh r0,00h 
+movl r0, 00h
+
+movh r1,00h
+movl r1, 01h
+
+movh r2,00h
+movl r2, 64h
+
+
+begin_for:
+	CMP r1,r2
+	brnc end_for
+
+	add r0, r0,r1
+	inc r1
+	inc r1
+	jmp begin_for
+
+end_for:
+

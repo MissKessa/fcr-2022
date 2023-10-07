@@ -1,0 +1,11 @@
+R5=0007h
+mov r3,r5
+_______________
+0000 = 0007
+
+movl r0, 00h
+movh r0, 00h
+mov r3, [r0]
+movh r0, 00h
+movl r0, 01h
+mov [r0], r3

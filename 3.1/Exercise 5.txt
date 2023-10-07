@@ -1,0 +1,20 @@
+R1=0005
+R2=0007
+0501=0010
+
+
+
+movh r3, 05h
+movl r3, 01h
+mov r4, [r3]
+
+movh r0, 00h
+movl r0, 02h
+
+add r6,r0,r2
+
+add r5,r4,r1
+
+
+sub r0, r5,r6
+mov [r3], r0

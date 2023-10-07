@@ -1,0 +1,12 @@
+CMP r0,r1
+brz consequent
+movh r2, 00h
+movl r2, 02h
+jmp continue
+
+consequent:
+movh r2, 00h
+movl r2, 01h
+
+continue:
+mov r3,r2

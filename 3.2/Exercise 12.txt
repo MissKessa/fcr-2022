@@ -1,0 +1,29 @@
+//a<5 ||a>10
+
+movh r0, 0
+movl r0,2
+
+movh r1, 0
+movl r1,5
+
+movh r2, 0
+movl r2,10
+
+	comp r0,r1 ;1st condition
+	brc body
+	jmp check_2nd
+	
+check_2nd:
+	comp r0, r2
+	brnc check_nzf
+	jmp end
+	
+check_nzf:
+	brnz body
+	jmp end
+	
+body:
+	movh r0,0
+	movl r0,0
+
+end:

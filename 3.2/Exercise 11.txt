@@ -1,0 +1,23 @@
+movh r0,0
+movl r0,0 ; counter=0
+
+movh r1,0
+movl r1,0 ; i=0
+
+movh r2,07h
+movl r2,40h ; R2--datos[]
+
+movh r5,00h
+movl r5,00h ; R5=0, valor con que comparar
+
+bucle:
+ add r3, r2,r1 ; r3-datos[i]
+ mov r4, [r3], r4- valor datos[i]
+ cmp r4,r5
+ brz final ; si el dato es cero, salir bucle
+ inc r0 ;contador ++
+ inc r1 ;i++
+ jmp bucle ;repetir
+ 
+final:
+;resultado en r0

@@ -1,0 +1,4 @@
+65= 41h
+
+movh r1, 00h
+movl r1, 41h

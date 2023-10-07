@@ -1,0 +1,40 @@
+; write in memory locations array
+movh r1, 0 ; number of elements
+movl r1,5
+
+movh r6, 0;item search
+movl r6,4
+
+call Search
+;r2  == result
+mov r2, r0
+nop
+
+Search:
+	movh r5, 0; r5 == i
+	movl r5,0
+	
+	bucle:
+		CMP r5, r1
+		brnc end_for ; if i>number of elements
+		movh r3, 06h ;address first element
+		movl r3, 00h
+		add r3,r3,r5 ; address current element
+		
+		mov r4,[r3] ; current element
+		
+		CMP r6,r4 ; search and current element
+		brz Equal
+		
+		inc r5
+		jmp bucle
+	
+	
+Equal:
+	mov r0,r5 ;return position
+	ret
+
+end_for:
+	movh r0, 88h ;if it's not found
+	movl r0, 88h
+	ret

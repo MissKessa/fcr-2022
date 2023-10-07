@@ -1,0 +1,32 @@
+movh r0,00h ;to the sum
+movl r0, 00h
+
+movh r1,00h
+movl r1, 00h
+
+movh r2,00h
+movl r2, 64h
+
+movh r6, 0 ; to compare with 0
+movl r6, 0
+
+movh r5, 0 ; to the and
+movl r5, 1
+
+begin_for:
+	and r3,r1,r5
+	
+	CMP r1,r2 ;checking the limit
+	brnc end_for
+	
+	comp r3,r6
+	brnz body
+	jmp next
+body:
+	add r0, r0,r1
+	jmp next
+next:
+	inc r1
+	jmp begin_for
+
+end_for:

@@ -1,0 +1,37 @@
+; write in memory locations array
+movh r1, 0 ; number of elements
+movl r1,5
+call Maximum
+;r2  == result
+mov r2, r0
+nop
+
+Maximum:
+	movh r5, 0; r5 == i
+	movl r5,0
+	movh r0, 0 ;max
+	movl r0, 0
+	
+	bucle:
+		CMP r5, r1
+		brnc end_for ; if i>number of elements
+		movh r3, 06h ;address first element
+		movl r3, 00h
+		add r3,r3,r5 ; address current element
+		
+		mov r4,[r3] ; current element
+		
+		CMP r0,r4 ; max and current element
+		brc B_Greater
+		
+		inc r5
+		jmp bucle
+	
+	
+B_Greater:
+	mov r0,r4
+	inc r5
+	jmp bucle
+
+end_for:
+  ret

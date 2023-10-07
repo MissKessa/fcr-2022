@@ -1,0 +1,29 @@
+movh r1,0 ;x
+movl r1,5
+
+movh r2,0 ;y
+movl r2,9
+
+movh r3, 05h ;result
+movl r3, 00h
+call Max
+mov [r3], r0
+nop
+
+Max:
+	CMP r1,r2
+	brnc Check_nzf
+	jmp B_Greater
+	
+	
+Check_nzf:
+	brnz A_Greater
+	jmp B_Greater
+	
+B_Greater:
+	mov r0,r2
+	ret
+	
+A_Greater:
+	mov r0,r1
+	ret

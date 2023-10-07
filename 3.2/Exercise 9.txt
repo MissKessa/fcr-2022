@@ -1,0 +1,21 @@
+0500=0007
+
+
+movh r6, 05h
+movl r6, 00h
+mov r1, [r6]
+
+
+CMP r0,r1
+brnc check_ZF_0
+jmp continue
+
+check_ZF_0:
+brnz consequent
+jmp continue
+
+consequent:
+movh r0, 00h
+movl r0, 00h
+
+continue:

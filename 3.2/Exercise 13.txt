@@ -1,0 +1,20 @@
+movh r0, 0 ;a
+movl r0, 2
+
+movh r1, 0 ;b
+movl r1, 0
+
+movh r6, 0 ; to compare with 0
+movl r6, 0
+
+movh r5, 0 ; to the and
+movl r5, 1
+
+and r2,r0,r5
+
+	comp r2,r6
+	brz body
+	jmp end
+body:
+	inc r1
+end:

@@ -1,0 +1,33 @@
+movh r1,0 ;x
+movl r1,5
+
+movh r2,0 ;y
+movl r2,9
+
+movh r3, 05h ; maximum
+movl r3, 00h
+
+movh r4, 05h ; minimum
+movl r4, 01h
+call MaxMin
+nop
+
+MaxMin:
+	CMP r1,r2
+	brnc Check_nzf
+	jmp B_Greater
+	
+	
+Check_nzf:
+	brnz A_Greater
+	jmp B_Greater
+	
+B_Greater:
+	mov [r3],r2
+	mov [r4],r1
+	ret
+	
+A_Greater:
+	mov [r4],r2
+	mov [r3],r1
+	ret

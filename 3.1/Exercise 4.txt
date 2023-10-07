@@ -1,0 +1,9 @@
+27 = 1Bh
+
+movh r1, 00h
+movl r1, 1Bh
+
+movh r0, 05h
+movl r0, 00h
+
+mov [r0], r1

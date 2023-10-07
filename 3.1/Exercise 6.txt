@@ -1,0 +1,29 @@
+0501=0009
+0502=0008
+0503=0003
+
+
+movh r3, 05h
+movl r3, 01h
+mov r4, [r3]
+
+movl r3, 02h
+mov r2, [r3]
+
+movh r0, 05h
+movl r0, 03h
+mov r3, [r0]
+
+
+movh r0, 00h
+movl r0, 02h
+
+add r6,r0,r3
+
+add r5,r4,r2
+
+
+sub r0, r5,r6
+movh r3, 05h
+movl r3, 01h
+mov [r3], r0
