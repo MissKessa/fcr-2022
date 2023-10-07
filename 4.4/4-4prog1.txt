@@ -1,0 +1,30 @@
+ORIGEN 0500h
+INICIO first
+
+.DATOS
+  operand1 VALOR 3
+  operand2 VALOR 0Ch
+  result VALOR 0
+
+.CODIGO
+
+first: 
+  ; Initialize registers to access memory
+  movl r0, BYTEBAJO DIRECCION operand1
+  movh r0, BYTEALTO DIRECCION operand1
+  movl r1, BYTEBAJO DIRECCION operand2
+  movh r1, BYTEALTO DIRECCION operand2
+  movl r2, BYTEBAJO DIRECCION result
+  movh r2, BYTEALTO DIRECCION result
+
+  ; Read the operands from memory
+  mov r3, [r0]
+  mov r4, [r1]
+
+  ; Perform the addition
+  add r5, r3, r4
+
+  ; Write the result in memory
+  mov [r2], r5
+
+FIN

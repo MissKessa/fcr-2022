@@ -1,0 +1,18 @@
+ORIGEN 0500h
+INICIO first
+
+.DATOS
+  string VALOR '*'
+  attribute VALOR 07h;00 000 (Black back) 111 (white letter)
+
+.CODIGO
+
+first: 
+  ; Initialize registers to access memory
+  movl r0, 0h
+  movh r0, 0F0h
+  movl r1, '*'
+  movh r1, 07h
+  mov [r0], r1
+
+FIN

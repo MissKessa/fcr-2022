@@ -1,0 +1,27 @@
+ORIGEN 0500h
+INICIO first
+
+.DATOS
+
+.CODIGO
+
+first: 
+  ; Initialize registers to access memory
+  movl r0, 78h ; last direction
+  movh r0, 0F0h
+  mov r1, [r0]
+
+  movh r2,0h
+  movl r2,1h
+
+  and r1,r1,r2
+  cmp r1,r2
+
+  brz end
+
+  or r1,r1,r2
+  mov [r0],r1
+
+end:
+
+FIN

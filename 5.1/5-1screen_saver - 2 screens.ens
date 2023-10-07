@@ -1,0 +1,33 @@
+ORIGEN 0500h
+INICIO first
+
+.DATOS
+  string VALOR 'a',0h
+.CODIGO
+
+first: 
+  ; Initialize registers to access memory
+  movl r0, 0h     ;1st screen
+  movh r0, 0F0h
+  movl r4, 0h      ;2nd screen
+  movh r4, 0D7h     
+  movl r1, BYTEBAJO DIRECCION string
+  movh r1, BYTEALTO DIRECCION string
+  mov r1,[r1]
+  
+  movh r3,0F0h
+  movl r3,77h
+loop:
+  cmp r0, r3
+  brz end
+  mov r2,r1
+  movh r2,07h ;Black-white
+  mov [r0], r2
+  mov [r4], r2
+  inc r0
+  inc r1
+  inc r4
+  jmp loop
+end:
+
+FIN

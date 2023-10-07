@@ -1,0 +1,70 @@
+ORIGEN 0500h
+INICIO first
+.PILA 100h
+
+.DATOS
+  position1 VALOR 0F000h
+  string VALOR "Hello, world!",0h
+  string2 VALOR "¡Hola, mundo!",0h
+
+.CODIGO
+first:
+  movl r0, BYTEBAJO DIRECCION position1
+  movh r0, BYTEALTO DIRECCION position1
+  movl r1, BYTEBAJO DIRECCION string
+  movh r1, BYTEALTO DIRECCION string
+  push r0
+  push r1
+  call printString
+  inc r7
+  inc r7
+
+  movl r1, BYTEBAJO DIRECCION string2
+  movh r1, BYTEALTO DIRECCION string2
+  inc r1
+  push r0
+  push r1
+  call printString
+  inc r7
+  inc r7
+  nop
+
+
+printString: 
+  ; Initialize registers to access memory
+  push r6
+  mov r6,r7
+  push r0
+  push r1
+  push r2
+  push r3
+  push r4
+  
+  inc r6
+  inc r6
+  mov r1,[r6]
+  inc r6
+  mov r0, [r6] ;[position1]
+  mov r4,[r0] ; position1
+
+  xor r3,r3,r3
+loop:
+  mov r2, [r1]
+  cmp r2, r3
+  brz end
+  movh r2,07h ;Black-white
+  mov [r4], r2
+  inc r4
+  inc r1
+  jmp loop
+end:
+  mov [r0],r4
+  
+  pop r4
+  pop r3
+  pop r2
+  pop r1
+  pop r0
+  pop r6
+  ret
+FIN
