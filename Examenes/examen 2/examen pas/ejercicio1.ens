@@ -1,0 +1,79 @@
+; Ejercicio 1
+; -----------
+; Inicializaciones:
+; - Las direcciones de memoria 2004h, 2005h y 2006h con los valores 1, 2 y 3, respectivamente.
+; 
+; La variable v1 se encuentra almacenada a partir de la dirección 2001h.
+; La variable v2 se encuentra almacenada a partir de la dirección 2004h.
+; Se apila de derecha a izquierda.
+;
+; Código a traducir:
+;	...................
+;	copy(v1, v2); // Llamada a la función copy()
+;	...................
+;	void copy(int u[], int v[])
+;	{
+;	unsigned int i;
+;	for(i = 0; i < 3; i++)
+;		u[i] = v[i];
+;	}
+
+ORIGEN 4000h
+.CODIGO
+	; Apilamos los parámetros
+	movh r1, 20h ;v1
+	movl r1, 01h 
+	movh r2, 20h ;v2
+	movl r2, 04h
+
+	push r2
+	push r1 
+	call copy ; Llamamos al procedimiento 
+	inc r7 ; Destruimos los parámetros	
+	inc r7
+	jmp -1 ; PASO 5 DE ESTA INSTRUCC.
+	
+PROCEDIMIENTO copy
+	push r6
+	mov r6, r7
+	
+	; Salvamos registros modificados
+	push r0
+	push r1
+	push r2
+	push r3
+	push r4
+	push r5
+	
+	; Accedemos a los parámetros
+	inc r6
+	inc r6
+	mov r0, [r6] ; r0 = u
+	inc r6
+	mov r1, [r6] ; r1 = v
+	
+	xor r2, r2, r2; r2 = i = 0
+	movh r3, 0h ; r3 = 3
+	movl r3, 03h
+bucle:cmp r2, r3 ; i < n ?
+	brnc fin_bucle
+	add r4, r1, r2 ; r4 = &v[i]
+	mov r4, [r4] ; r4 = v[i];
+	add r5, r0, r2 ; r5 = &u[i]
+	mov [r5], r4 ; u[i] = v[i]
+	inc r2 ; i++
+	jmp bucle	
+fin_bucle:
+
+	; Recuperamos los registros modificados
+	pop r5
+	pop r4
+	pop r3
+	pop r2
+	pop r1
+	pop r0
+	pop r6
+	
+	ret
+FINP
+FIN
